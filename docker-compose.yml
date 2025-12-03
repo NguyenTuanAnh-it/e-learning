@@ -14,5 +14,19 @@ services:
       - "3309:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+  app:
+    build: .
+    container_name: e-learning
+    ports:
+      - "8088:8088"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/e_learning
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: 1235678aA@
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+
 volumes:
   mysql_data:
