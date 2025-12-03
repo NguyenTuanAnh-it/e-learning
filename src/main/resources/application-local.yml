@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: e-learning
+
+  datasource:
+    url: jdbc:mysql://localhost:3309/e_learning
+    username: root
+    password: 12345678aA@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+  servlet:
+    context-path: /e-learning
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
